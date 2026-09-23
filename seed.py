@@ -17,12 +17,10 @@ except Exception:
     db.rollback()
 
 # Create session 1 if it doesn't exist
-try:
-    session = models.Session(id=1, title="Math", teacher_id=2, parent_id=4, child_name="Alice")
+if not db.query(models.Session).filter(models.Session.id == 1).first():
+    session = models.Session(title="Math", teacher_id=2, parent_id=4, child_name="Alice")
     db.add(session)
     db.commit()
-except Exception:
-    db.rollback()
 
 db.close()
 print("Database seeded successfully.")
