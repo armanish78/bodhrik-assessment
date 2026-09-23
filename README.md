@@ -1,3 +1,5 @@
+THE WRITTEN NOTES (300-500 WORDS) IS NAMED AS ASSESSMENT_NOTE.MD INT HE FILE STRUCTURE
+
 # Bodhrik API
 
 A small FastAPI backend service built for the Bodhrik technical assessment. It manages users, sessions, and asynchronous evaluation jobs using PostgreSQL and Redis.
