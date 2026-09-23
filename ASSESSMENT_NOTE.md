@@ -8,7 +8,7 @@ The database schema revolves around `User`, `Session`, and `Evaluation`.
 
 A key decision was how to link a parent to a session. Initially, it might seem simple to match a `child_name` string on the user to a `child_name` on the session. However, string matching is a weak and unreliable way to enforce data ownership. If two different families have a child with the same name, they could accidentally (or maliciously) access each other's sessions.
 
-To fix this, I used a direct `parent_id` foreign key on the `Session` model. This creates a strict relational link to the `User` table, ensuring accurate role-based access control (RBAC). The tradeoff is that `child_name` remains as a simple string column on the session. While we could have fully normalized this into a separate `Student` table, doing so would add unnecessary complexity for a small 2-day project. Storing the name directly on the session keeps things simple while still fully satisfying the security and RBAC requirements.
+To fix this, I used a direct `parent_id` foreign key on the `Session` model. This creates a strict relational link to the `User` table, ensuring accurate role-based access control (RBAC). The tradeoff is that `child_name` remains as a simple string column on the session. While we could have fully normalized this into a separate `Student` table, doing so would add unnecessary complexity for a small assessment project. Storing the name directly on the session keeps things simple while still fully satisfying the security and RBAC requirements.
 
 ## Adding a Fourth Role
 
